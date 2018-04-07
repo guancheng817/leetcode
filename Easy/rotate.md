@@ -4,7 +4,7 @@
 例如，如果  n = 7 ,  k = 3，给定数组  [1,2,3,4,5,6,7]  ，向右旋转后的结果为 [5,6,7,1,2,3,4]。
 
 # 代码实现
-void rotate(int* nums, int numsSize, int k) {
+void Rotate(int* nums, int numsSize, int k) {
       k = k%numsSize;  
       Reverse(arr,0,numsSize-k-1);          
       Reverse(arr,numsSize-k,numsSize-1);          
