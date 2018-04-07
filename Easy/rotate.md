@@ -5,19 +5,18 @@
 
 * #  代码实现
 ```C
-void Rotate(int* nums, int numsSize, int k) {
-      k = k%numsSize;  
-      Reverse(arr,0,numsSize-k-1);          
-      Reverse(arr,numsSize-k,numsSize-1);          
-      Reverse(arr,0,numsSize-1);  
+void rotate(int* nums, int numsSize, int k) {
+    k = k%numsSize;  
+      Reverse(nums,0,numsSize-k-1);          
+      Reverse(nums,numsSize-k,numsSize-1);          
+      Reverse(nums,0,numsSize-1);  
 }
 
-void Reverse(int *arr,int first,int last)
-{      
-    for(; first < last;first++,last--){
-           int temp = arr[last];
-           arr[last] = arr[fist];
-           arr[first] = temp;
+void Reverse(int *nums,int start,int end){      
+    for(; start < end;start++,end--){
+           int s = nums[end];
+           nums[end] = nums[start];
+           nums[start] = s;
       }
 }
 ```
