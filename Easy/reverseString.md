@@ -3,7 +3,7 @@
 * # 代码实现
 ```c
 char* reverseString(char* s) {
-    int j=strlen(s);
+    int j=strlen(s)-1;
     char temp;
  
     for(int i=0;i<=j/2;i++,j--)
