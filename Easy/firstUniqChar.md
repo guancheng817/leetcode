@@ -1,4 +1,4 @@
-* # 问题描述
+﻿* # 问题描述
 给定一个字符串，找到它的第一个不重复的字符，并返回它的索引。如果不存在，则返回 -1。
 
 * #编程实现
@@ -6,7 +6,8 @@
 class Solution {
 public:
     int firstUniqChar(string s) {
-        int hash[200],i;
+        unordered_map<int,int> hash;
+        int i;
         int l=s.length();
         if(l)
         {  

@@ -6,8 +6,7 @@ Your function should return true if any value appears at least twice in the arra
 
 如果任何值在数组中出现至少两次，函数应该返回 true。如果每个元素都不相同，则返回 false。
 * # 编程实现
- ```c 
-class Solution {
+ ```c class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
         int  i,j;
@@ -24,6 +23,6 @@ public:
         return false;
     }
 };
-```
+
 * # 总结体会
  建一个hash数组，统计每个数组元素出现的次数，若大于1，则返回true；
