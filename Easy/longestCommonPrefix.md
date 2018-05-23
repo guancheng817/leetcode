@@ -1,26 +1,31 @@
-* # 问题分析
+﻿* # 问题分析
 编写一个函数来查找字符串数组中的最长公共前缀。
 * # 编程实现
 ```c
 class Solution {
 public:
     string longestCommonPrefix(vector<string>& strs) {
-     if(strs.size()==0)
-         return "";
-     int j,i;
-     string prefix="";
-     for(i=0;i<strs[0].size();i++)
-     {
-         for(j=0;j<strs.size();j++)
-             if(strs[0][j]!=strs[j][i])
-                 return prefix;
-         prefix=prefix+strs[0][i];
-     }
-     return prefix;
+    if(strs.size()==0) return "";
+
+        string prifex = strs[0];      //将第一个默认为最长公共字串
+
+        for(int i=1;i<strs.size();i++){
+            // 将当前最长共同字符串和当前数组中的对比,把小的那个作为长度
+            int len = prifex.size()>strs[i].size() ? strs[i].size():prifex.size();
+
+            int j=0;
+            for(j=0;j<len;j++){
+                
+                if(prifex[j]!=strs[i][j])
+                    break;
+            }      // 每个字符都比较,不满足条件就break
+            
+            prifex = prifex.substr(0,j);
+        }
+
+        return prifex;
     }
 };
 ```
 * # 总结体会
-  运用c++中的string类，将字符串数组中的第一个字符串，与剩下的字符串进行一个纵向比较。
-  即依次用第一个字符串中的每一个字母与余下的字符串中的每一个字符相比较，若无相同，直接返回
-  prefix，否则将相同的字母加到prefix字符串中。
+  上次的测试有部分测试点未测试通过，此次进行更改。将第一个字串默认为最长公共字串，依次与后面的字串的每个字符进行比较。
