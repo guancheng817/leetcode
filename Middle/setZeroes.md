@@ -9,15 +9,15 @@ public:
     void setZeroes(vector<vector<int>>& matrix) {
         if(matrix.size() == 0) 
             return;
-        bool firstRowZero = false, firstColZero = false; // 记录哪些元素的行列需要置零，判断首行首列是否要置0
+        bool rowZero = false, colZero = false; // 记录哪些元素的行列需要置零，判断首行首列是否要置0
         for(int i = 0; i < matrix.size(); i++){
             for(int j = 0; j < matrix[0].size(); j++){
                 if(i != 0 && j != 0 && matrix[i][j] == 0){
                     matrix[i][0] = 0;
                     matrix[0][j] = 0;
                 } else if (matrix[i][j] == 0){  // 若首行首列为零，将其标记。
-                    firstRowZero = i == 0 ? true : firstRowZero;
-                    firstColZero = j == 0 ? true : firstColZero;
+                    rowZero = i == 0 ? true : rowZero;
+                    colZero = j == 0 ? true : colZero;
                 }
             }
         }
@@ -30,11 +30,11 @@ public:
             }
         }
 
-        for(int i = 0; firstColZero && i < matrix.size(); i++){ //首列置零
+        for(int i = 0; colZero && i < matrix.size(); i++){ //首列置零
             matrix[i][0] = 0;
         }
   
-        for(int j = 0; firstRowZero && j < matrix[0].size(); j++){ //首行置零
+        for(int j = 0; rowZero && j < matrix[0].size(); j++){ //首行置零
             matrix[0][j] = 0;
         }
     }
