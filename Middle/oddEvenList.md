@@ -25,4 +25,23 @@ public:
     }
 };
 ```
+```c
+class Solution {
+public:
+    ListNode* oddEvenList(ListNode* head) {
+        if (!head || !head->next) return head;
+        ListNode* odd=head, *even=head->next, *even_head=even;
+        while(even&&even->next){
+            odd->next=even->next;
+            odd=odd->next;
+            even->next=odd->next;
+            even=even->next;
+        }
+        odd->next=even_head;
+        return head;
+    }
+};
+```
 odd指向奇节点，even指向偶节点，把偶节点even后的那个奇节点提到odd的后面，当前的偶节点指向下一个偶节点，然后odd和even前进一步，此时even又指向偶节点，odd指向当前奇节点的末尾，依次把全部偶节点提前。
+
+第二种方法，用一个even_head指针保存偶节点的初始位置，odd指针even指针的下一个，然后odd指针后移一步，再把even指针指向下一个奇节点的下一个节点，然后偶节点后移，最后把奇偶链表连起来即可。
