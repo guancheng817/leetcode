@@ -1,34 +1,39 @@
-* # 问题分析
+﻿* # 问题分析
 给定一个字符串，确定它是否是回文，只考虑字母数字字符和忽略大小写。
 * # 编程实现
 ```c
 class Solution {
 public:
-    bool isPalindrome(string s) {
-        if(s.length()==0)  
+
+        bool isPalindrome(string s) {
+        if(s.size()==0)  
         return true;  
-    transform(s.begin(), s.end(), s.begin(), ::tolower);  
     int first=0;  
     int last=s.length()-1;  
-    for(;first<last;first++,last--)
+    while(first<last)
     {  
         while(first<last&&!isCharOrNumber(s[first]))  
             first++;  
         while(first<last&&!isCharOrNumber(s[last]))  
             last--;  
-        if(first<last && s[first]!= s[last])  
-            return false;                
+        if(tolower(s[first])!= tolower(s[last])) 
+            return false;  
+        
+            first++;
+            last--;
     }  
-    return true;  
+    return true; 
+
     }
     
     bool isCharOrNumber(char s)
     {  
-    if((s>='a'&&s<='z')||(s>='0'&&s<='9'))  
+    if((s>='a'&&s<='z')||(s>='0'&&s<='9')||(s>='A'&&s<='Z'))  
         return true;  
     return false;  
-    } 
+    
+    }
 };
 ```
 * # 总结体会
-用C++ stl中 transform先将字符串转为小写，然后从两端开始一一比较；
+ 根据回文串的定义，从第一个字符到最后一个字符一一比较，若相等，则为回文串。用tolower函数将字母全转化为小写来进行比较。
