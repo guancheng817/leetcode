@@ -31,5 +31,26 @@ public:
 };
 ```
 
+
+
+```c
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int,int> m;
+        for(int i=0;i<nums.size();i++)
+        {
+            if(m.count(target-nums[i])){
+
+                return {i,m[target-nums[i]]};
+            }
+            
+            m[nums[i]]=i;
+        }
+    }
+};
+```
 * # 总结体会
- 此种方法思路简单，两个for嵌套使用，时间复杂度为O（N^2）.
+ 
+此种方法思路简单，两个for嵌套使用，时间复杂度为O（N^2）.
+用一个hash表，键为数组元素值，值为数组元素下标，将复杂度降为O(n).
