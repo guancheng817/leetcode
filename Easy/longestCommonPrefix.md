@@ -27,5 +27,25 @@ public:
     }
 };
 ```
+```c
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+            if(strs.empty()) 
+                return "";
+        string prifex;      
+        for(int i=0;i<strs[0].size();i++){
+            char c=strs[0][i];
+            for(int j=0;j<strs.size();j++){
+                if(c!=strs[j][i])
+                    return prifex;
+            }
+            
+            prifex.push_back(c);
+        }
+        return prifex;
+    }
+};
+```
 * # 总结体会
   上次的测试有部分测试点未测试通过，此次进行更改。将第一个字串默认为最长公共字串，依次与后面的字串的每个字符进行比较。
