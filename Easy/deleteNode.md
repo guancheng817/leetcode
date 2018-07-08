@@ -24,6 +24,21 @@ public:
         node->next = q->next;
     }
 };
+
+
+```c
+class Solution {
+public:
+    void deleteNode(ListNode* node) {
+      
+        node->val=node->next->val;
+        node->next=node->next->next;
+    }
+    
+};
+```
+
 ```
 * # 总结体会
- 将下个节点赋给要删除的节点，然后删除下一个节点即可。
+ 
+将下个节点赋给要删除的节点，然后删除下一个节点即可。
