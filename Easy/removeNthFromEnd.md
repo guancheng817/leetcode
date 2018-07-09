@@ -5,29 +5,29 @@
 class Solution {
 public:
     ListNode* removeNthFromEnd(ListNode* head, int n) {
-        ListNode *p = head;  
-        ListNode *p0 = head;  
-        int num = 0;  
-        int tmp = 0;
+        ListNode* p = head;
+        ListNode* q = head;
+        int sum = 0;  
+        int temp = 0;
         while(p != NULL)  
         {  
-            num += 1;  
+            sum ++;  
             p = p->next;  
         }  
-        if (num == n)  
+        if (sum == n)  
         {  
             return head->next;  
         } 
-        num = num - n - 1;  
-        while(num != tmp)  
+        sum = sum - n - 1;  
+        while(temp < sum)  
         {  
-            tmp += 1;  
+            temp ++;  
             head = head->next;  
         }  
         head->next = head->next->next;  
-        return p0;  
+        return q; 
     }
 };
 ```
 * # 总结体会
-  统计链表长度，找到被删除那个点的前驱结点，进行删除。
+  统计链表长度，找到被删除那个点的前驱结点，进行删除,注意当链表长度和n相等的情况。
