@@ -6,20 +6,18 @@ Reverse a singly linked list.
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
-        
-      ListNode* q = NULL;
-      ListNode* temp;
-      ListNode* p = head;
-        while(p)
-        {
-            temp = p -> next;
-            p -> next = q;
+        ListNode* p = head;
+        ListNode* q = NULL;
+        ListNode* tmp;
+        while(p){
+            tmp = p->next;
+            p->next = q;
             q = p;
-            p = temp;
+            p = tmp;
         }
+        
         return q;
-
-    }
+    } 
 };
 ```
 * # 总结体会
