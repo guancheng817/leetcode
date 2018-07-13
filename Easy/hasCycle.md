@@ -17,7 +17,6 @@ public:
     bool hasCycle(ListNode *head) {
         ListNode* fast = head;
         ListNode* slow = head;
-        
         while(fast && fast->next)
         {
             fast = fast->next->next;
@@ -25,7 +24,6 @@ public:
             if(slow == fast)
                 return true;
         }
-        
         return false;
     }
 };
