@@ -19,16 +19,11 @@ The maximum depth is the number of nodes along the longest path from the root no
 class Solution {
 public:
     int maxDepth(TreeNode* root) {
-        if (root == NULL)
-            return 0;
-        
-        int m = maxDepth(root->left) + 1;
-        int n = maxDepth(root->right) + 1;
+        if(!root) return 0;
+        int m = maxDepth(root->left)+1;
+        int n = maxDepth(root->right)+1;
 
-        if(m>n)
-            return m;
-        else 
-            return n;
+        return m>n?m:n;
     }
 };
 ```
