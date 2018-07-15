@@ -6,32 +6,28 @@ Given a binary tree, determine if it is a valid binary search tree (BST).
 * # ±‡≥Ã µœ÷
 
 ```c
-
 class Solution {
 public:
     bool isValidBST(TreeNode* root) {
-    if(!root) 
-    return true;
-    vector<int> arr;
-    order(root,arr);
-    for(int i=0;i<arr.size()-1;i++)
+    if(!root) return true;
+    vector<int> vec;
+    order(root,vec);
+    for(int i=0;i<vec.size()-1;i++)
    {
-     if(arr[i]>=arr[i+1])
+     if(vec[i]>=vec[i+1])
       return false;
    }
    return true;
 }
  
-  void order(TreeNode* root,vector<int> & arr){
-    if(!root) 
-    return;
+  void order(TreeNode* root,vector<int> & vec){
+    if(!root) return;
     if(root->left) 
-    order(root->left,arr);
-    arr.push_back(root->val);
+    order(root->left,vec);
+    vec.push_back(root->val);
     if(root->right) 
-    order(root->right,arr);
-  }
-
+    order(root->right,vec);
+    }
 };
 ```
 
