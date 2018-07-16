@@ -7,19 +7,17 @@ Given a binary tree, check whether it is a mirror of itself ¡£
 class Solution {
 public:
     bool isSymmetric(TreeNode* root) {
-        
-     if(root == NULL)
-        return true;
-         
-            return symmetric(root->left,root->right);
+        if(!root)
+        return true;  
+        return checkSymmetric(root->left,root->right);
     }
     
-    bool symmetric(TreeNode* left,TreeNode* right){
-            if(left == NULL && right == NULL)
+    bool checkSymmetric(TreeNode* left,TreeNode* right){
+            if(!left && !right)
                 return true;
-            if(left == NULL || right == NULL)
+            if(!left || !right)
                 return false;
-            return (left->val==right->val)&&symmetric(left->left,right->right)&&symmetric(left->right,right->left);
+            return checkSymmetric(left->left,right->right)&&checkSymmetric(left->right,right->left)&&(left->val==right->val); 
         }
 };
 ```
