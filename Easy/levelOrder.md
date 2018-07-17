@@ -6,24 +6,25 @@ Given a binary tree, return the level order traversal of its nodes' values. (ie,
 class Solution {
 public:
     vector<vector<int>> levelOrder(TreeNode* root) {
-        vector<vector<int>> vec;
+         vector<vector<int>> vec;
         if(!root) return vec;
         queue<TreeNode*> q;
         q.push(root);
-        while(!q.empty()){
+        while(!q.empty())
+        {   
             vector<int> tmp;
-            int size = q.size();
-            while(size--){
-                TreeNode* t = q.front();
+            int l = q.size();
+            for(;l>0;l--)
+            {
+                TreeNode* t;
+                t = q.front();
                 tmp.push_back(t->val);
                 q.pop();
-                if(t->left)
-                    q.push(t->left);
-                if(t->right)
-                    q.push(t->right);
+                if(t->left) q.push(t->left);
+                if(t->right) q.push(t->right);
             }
             vec.push_back(tmp);
-        }
+          }
         
         return vec;
     }
