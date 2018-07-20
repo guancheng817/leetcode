@@ -26,6 +26,19 @@ public:
         return m>n?m:n;
     }
 };
+
+class Solution:
+    def maxDepth(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        if not root:
+            return 0
+        else:
+            m = self.maxDepth(root.left) +1
+            n = self.maxDepth(root.right) +1
+            return (m if m>n else n)
 ```
 * # 总结体会
 用递归的方法，左右子数中，深度最大的字数就是树的最大深度。
