@@ -12,18 +12,15 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
-class Solution {
-public:
-    void deleteNode(ListNode* node) {
-            if(node->next == NULL)
-            {
-            return;
-            }
-        ListNode *q = node->next;
-        node->val = q->val;
-        node->next = q->next;
-    }
-};
+class Solution(object):
+    def deleteNode(self, node):
+        """
+        :type node: ListNode
+        :rtype: void Do not return anything, modify node in-place instead.
+        """
+        
+        node.val = node.next.val
+        node.next = node.next.next
 
 
 ```c
