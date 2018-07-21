@@ -28,6 +28,30 @@ public:
         return q; 
     }
 };
+class Solution:
+    def removeNthFromEnd(self, head, n):
+        """
+        :type head: ListNode
+        :type n: int
+        :rtype: ListNode
+        """
+        if not head.next :
+            return None
+        q, p = head, head
+        num = 0
+        tmp = 0
+        while p is not None:
+            p = p.next
+            num += 1
+        if n == num:
+            return head.next
+        m = num - n -1
+        while m > tmp:
+            q = q.next
+            tmp +=1
+            
+        q.next = q.next.next
+        return head
 ```
 * # 总结体会
   统计链表长度，找到被删除那个点的前驱结点，进行删除,注意当链表长度和n相等的情况。
