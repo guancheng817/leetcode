@@ -19,6 +19,16 @@ public:
         return q;
     } 
 };
+class Solution:
+    def reverseList(self, head):
+        p,q = head,None
+        while p :
+            temp = p.next 
+            p.next = q
+            q = p
+            p = temp
+            
+        return q
 ```
 * # 总结体会
 使用三个指针遍历单链表，逐个链接点进行反转。
