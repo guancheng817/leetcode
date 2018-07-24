@@ -31,6 +31,28 @@ public:
         return true;
     }
 };
+
+class Solution:
+    def isPalindrome(self, head):
+        """
+        :type head: ListNode
+        :rtype: bool
+        """
+        stack = []
+        slow,fast = head, head
+        while fast and fast.next:
+            stack.append(slow)
+            slow = slow.next
+            fast = fast.next.next
+        if fast != None:
+            slow = slow.next
+        while slow:
+            tmp = stack.pop()
+            if tmp.val != slow.val:
+                return False
+            slow = slow.next
+            
+        return True
 ```
 * # 总结体会
  设置一个快指针和一个慢指针，将链表的前半部分结点存入栈中，然后与后半部分结点进行逐个比较，若相同，则为回文链表。注意结点奇偶的情况。
