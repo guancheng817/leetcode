@@ -29,6 +29,27 @@ public:
     order(root->right,vec);
     }
 };
+
+class Solution:
+    def order(self,root,l):
+            if root == None:
+                return
+            if(root.left): 
+                self.order(root.left,l)
+            l.append(root.val)
+            
+            if(root.right):
+                self.order(root.right,l)
+          
+    def isValidBST(self, root):
+        if root == None:
+            return True
+        l = []
+        self.order(root,l)
+        for i in range(len(l)-1):
+            if l[i]>=l[i+1]:
+                return False
+        return True
 ```
 
 * # 总结体会
