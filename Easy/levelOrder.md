@@ -29,6 +29,28 @@ public:
         return vec;
     }
 };
+class Solution:
+    def levelOrder(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[List[int]]
+        """
+
+        if not root  :
+            return []
+        res,cur_level = [],[root]
+        while cur_level:
+            next_level ,temp_level = [],[]      
+            for node in cur_level:
+                if node.left: 
+                    next_level.append(node.left)
+                if node.right:
+                    next_level.append(node.right)
+                temp_level.append(node.val)
+            cur_level = next_level
+            res.append(temp_level)
+        
+        return res
 ```
 * # 总结体会
    用广度优先搜索，若每个结点不为空，将其值加入数组vec，并且出列，同时它左右子结点入列，循环。
