@@ -8,6 +8,7 @@ For this problem, a height-balanced binary tree is defined as a binary tree in w
 
 示例:
 * # 编程实现
+```c
 class Solution {
 public:  
     TreeNode* sortedArrayToBST(vector<int>& nums) {
@@ -24,6 +25,23 @@ public:
          return root;
     }  
 };  
+class Solution:    
+    def bst(self,left,right,nums):
+        if left > right:    
+            return None
+        mid = left + (right-left)//2
+        root = TreeNode(nums[mid])
 
+        root.left = self.bst(left,mid-1,nums)
+        root.right = self.bst(mid+1,right,nums)
+
+        return root   
+    def sortedArrayToBST(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: TreeNode
+        """
+        return self.bst(0,len(nums)-1,nums)
+```
 * # 总结体会
 由题中可知平衡搜索树的特点，发现平衡二叉搜索树的根节点的值恰好时所有节点值得中间值，若节点个树数为偶数个，则是靠前那个。用二分查找的方式，先将中间节点作为根节点，根节点的左子树为左半段数组的中间值，右子树为右半段节点的中间值。
