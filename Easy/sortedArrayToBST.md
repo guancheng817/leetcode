@@ -25,6 +25,8 @@ public:
          return root;
     }  
 };  
+```
+```python
 class Solution:    
     def bst(self,left,right,nums):
         if left > right:    
