@@ -12,19 +12,33 @@ Design an algorithm to find the maximum profit. You may complete as many transac
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
-        int j;  
-        int maxProfit = 0;  
-        for(int i = 1; i < prices.size(); i++)
-        { 
-            j = prices[i] - prices[i - 1];  
-            if(j > 0)
-            {  
-                maxProfit += j;  
-            }  
-        }  
-        return maxProfit;  
+        int max_profit = 0;
+        if(prices.size() == 0)
+            return 0;
+        int min_buy = prices[0];        
+        for(int i = 1;i< prices.size() ;i++){
+            max_profit = max(max_profit,prices[i] - min_buy);
+            min_buy = min(min_buy,prices[i]);
+        }
+        return max_profit;
     }
 };
+```
+```python
+class Solution:
+    def maxProfit(self, prices):
+        """
+        :type prices: List[int]
+        :rtype: int
+        """
+        if len(prices)==0: return 0
+        max_profit = 0
+        min_buy = prices[0]
+        for i in range(1,len(prices)):
+            max_profit = max(max_profit,prices[i]-min_buy)
+            min_buy = min(min_buy,prices[i])
+        
+        return max_profit
 ```
 * # 总结体会
 由于不限购买次数，所以只要能赚钱，就卖出即可，然后统计利润。
