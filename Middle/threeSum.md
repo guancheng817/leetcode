@@ -37,6 +37,39 @@ public:
     }
 };
 ```
+```python
+class Solution:
+    def threeSum(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        res = []
+        numsSet =[]
+        nums.sort()
+        
+        for i in range(len(nums)-2):
+            if i==0 or nums[i]>nums[i-1]:
+                k = len(nums) -1
+                j = i+1 
+                while j<k:
+                    index = nums[i]+nums[k]+nums[j]
+                    if 0 == index: 
+                        res.append([nums[i],nums[j],nums[k]])
+                        j+=1
+                        k-=1
+                        while j<k and nums[j]==nums[j-1]:
+                            j+=1
+                        while j<k and nums[k]==nums[k+1]:
+                            k-=1
+                    elif index < 0:
+                        j+=1
+                    else: 
+                        k-=1
+                
+        return res
+```
+
 
 * # 总结体会
  将三数和转化为两数和问题。先将数组排序，设置三个指针p,q,r，p指针指向第一个数x，q,r指向数组中剩余数中的两个，q，r所指向的两数和为-x。对p指向第一个数的情况分析完毕后，将p右移。一直分析到p指向数组中倒数第三个数的情况，并且跳过所有重复的情况。
