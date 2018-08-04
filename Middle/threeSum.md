@@ -45,7 +45,7 @@ class Solution:
         :rtype: List[List[int]]
         """
         res = []
-        numsSet =[]
+
         nums.sort()
         
         for i in range(len(nums)-2):
