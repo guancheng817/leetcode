@@ -26,5 +26,23 @@ public:
     }
 };
 ```
+```python
+class Solution:
+    def majorityElement(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """ 
+        d = {}
+        size = len(nums)
+        for i in range(size):
+            if nums[i] in d.keys():
+                d[nums[i]]+=1
+            else:
+                d[nums[i]] = 1            
+        for key in d.keys():
+            if d[key] > size//2:
+                return key
+```
 * # 总结体会
    遍历数组，用map记录每个数出现的次数，再次遍历后找出。
