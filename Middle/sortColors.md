@@ -26,5 +26,22 @@ public:
     }
 };
 ```
+```python
+class Solution:
+    def sortColors(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: void Do not return anything, modify nums in-place instead.
+        """
+        l1 = [0]*3
+        for i in nums:
+            l1[i]+=1
+        nums.clear()
+        for i in range(3):
+            for j in range(l1[i]):
+                nums.append(i)
+
+```
 * # 总结体会
  第一次扫描数组，用count数组记录每个颜色的个数，第二次扫描对颜色排序。
+ python: 记录每个颜色的个数，重写数组。
