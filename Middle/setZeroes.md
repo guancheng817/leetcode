@@ -40,6 +40,27 @@ public:
     }
 };
 ```
+```python
+class Solution:
+    def setZeroes(self, matrix):
+        """
+        :type matrix: List[List[int]]
+        :rtype: void Do not return anything, modify matrix in-place instead.
+        """
+        l1 = []
+        
+        for i in range(len(matrix)):
+            for j in range(len(matrix[i])):
+                if  matrix[i][j]==0:
+                    l1.append((i,j))
+        
+        for i,j in  l1:
+            matrix[i] = [0]*len(matrix[i])
+            for k in range(len(matrix)):
+                matrix[k][j] = 0
+        
+        return 
+```
 * # 总结体会
   使用原地算法求解，记录除首行首列的元素外，哪些元素的行列需要置0，并且用两个bool变量记录首行首列是否
 有元素为0，将其他元素为0的行列置零后，再判断是否需要将首行首列置0.
