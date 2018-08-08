@@ -22,5 +22,23 @@ public:
     
 };
 ```
+```python
+class Solution:
+    def groupAnagrams(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: List[List[str]]
+        """      
+        li = {}
+        for st in strs:
+            st_sorted = "".join(sorted(st))
+            if st_sorted in li :
+                li[st_sorted].append(st)
+            else:
+                li[st_sorted] = [st]
+               
+        return list(li.values())
+```
 * # 总结体会
 把字母异位词重新排列后，会得到相同的结果，所以建立一个映射表，将每个字符串排序，排序后的字符串作为key，然后再把key对应的value存入二维数组vec中。
+用哈希表存储的思想，将排序后的字符串作为键，查询字典中是否有这个字符串，有则添加，没有则建立。
