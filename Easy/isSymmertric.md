@@ -20,7 +20,8 @@ public:
             return checkSymmetric(left->left,right->right)&&checkSymmetric(left->right,right->left)&&(left->val==right->val); 
         }
 };
-
+```
+```python
 class Solution:  
     def symmertric(self,left,right):
         if left == None and right==None:
