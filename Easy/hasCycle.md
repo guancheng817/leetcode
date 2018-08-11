@@ -27,12 +27,10 @@ public:
         return false;
     }
 };
+```
+```python
 class Solution(object):
     def hasCycle(self, head):
-        """
-        :type head: ListNode
-        :rtype: bool
-        """
         slow,fast = head, head
         while fast and fast.next:
             slow = slow.next
