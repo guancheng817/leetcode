@@ -29,18 +29,16 @@ public:
     order(root->right,vec);
     }
 };
-
+```
+```python
 class Solution:
     def order(self,root,l):
             if root == None:
                 return
-            if(root.left): 
-                self.order(root.left,l)
+            if(root.left): self.order(root.left,l)
             l.append(root.val)
-            
-            if(root.right):
-                self.order(root.right,l)
-          
+            if(root.right): self.order(root.right,l)
+       
     def isValidBST(self, root):
         if root == None:
             return True
@@ -51,7 +49,6 @@ class Solution:
                 return False
         return True
 ```
-
 * # 总结体会
 
  因为二叉搜索树的中序遍历是有序的，所以要验证二叉树是否为二叉搜索树，
