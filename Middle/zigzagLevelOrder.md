@@ -36,5 +36,24 @@ public:
     }  
 };
 ```
+```python
+class Solution:
+    def zigzagLevelOrder(self, root):
+        res = []
+        def bfs(root,level):
+            if root != None:
+                if len(res) < level + 1:
+                    res.append([])
+                res[level].append(root.val)
+                bfs(root.left,level + 1)
+                bfs(root.right,level + 1)
+        bfs(root,0)
+        i = 1
+        while i < len(res):
+            res[i].reverse()
+            i += 2
+        return res
+```
 * # 总结体会
  用bfs求解，用flag实现锯齿层次遍历，用reverse实现从右到左输出。
+ python:用递归求解，最后隔层翻转。
