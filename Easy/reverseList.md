@@ -19,15 +19,19 @@ public:
         return q;
     } 
 };
+```
+```python
 class Solution:
     def reverseList(self, head):
-        p,q = head,None
+
+        p, q = head, None
         while p :
+
             temp = p.next 
             p.next = q
             q = p
             p = temp
-            
+          
         return q
 ```
 * # 总结体会
