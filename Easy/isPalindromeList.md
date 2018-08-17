@@ -31,23 +31,25 @@ public:
         return true;
     }
 };
-
+```
+```python
 class Solution:
     def isPalindrome(self, head):
-        """
-        :type head: ListNode
-        :rtype: bool
-        """
-        stack = []
+
+        stk = []
         slow,fast = head, head
         while fast and fast.next:
-            stack.append(slow)
+
+            stk.append(slow)
             slow = slow.next
             fast = fast.next.next
+
         if fast != None:
+
             slow = slow.next
+
         while slow:
-            tmp = stack.pop()
+            tmp = stk.pop()
             if tmp.val != slow.val:
                 return False
             slow = slow.next
