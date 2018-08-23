@@ -28,5 +28,27 @@ public:
     }
 };
 ```
+```python
+class Solution:
+    def addTwoNumbers(self, l1, l2):
+        head = ListNode(0)
+        cur = head
+        c = 0
+        while l1 or l2 or c:
+            sum_list = 0
+            if l1:
+                sum_list += l1.val
+                l1 = l1.next
+            if l2:
+                sum_list += l2.val
+                l2 = l2.next
+            sum_list +=c
+            
+            c = sum_list//10
+            cur.next = ListNode(sum_list%10)
+            cur = cur.next
+        
+        return head.next
+```
 * # 总结体会
  遍历两个链表，将对应的位置的值相加，考虑进位，并为结果新建一个链表节点。
