@@ -26,5 +26,18 @@ public:
     }
 };
 ```
+```python
+class Solution:
+    def canJump(self, nums):
+
+        loc =i = 0
+        l =len(nums)
+        
+        while i<l  and i<=loc:
+            loc = max(loc,i+nums[i])
+            i+=1
+        
+        return loc>= l-1
+```
 * # 总结体会
  判断能否跳到终点，在遍历数组的过程中，更新每个点能跳到最远的范围，如果最后这个范围大于等于终点，那么就能跳到。
