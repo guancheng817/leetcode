@@ -9,22 +9,30 @@
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
-       int index;  
         int maxProfit = 0;  
-        for(int i = 0; i < prices.size(); i++)
+        for(int i = 1; i < prices.size(); i++)
         { 
               
-            for(int j=i+1;j < prices.size();j++)
-            {  
-                index = prices[j] - prices[i]; 
-                if(index>0 && index>maxProfit)
-                maxProfit = index;
-                     
-            }  
+             maxProfit += max(0,prices[i]-prices[i-1]);
         }  
-        return maxProfit;   
+        return maxProfit;  
     }
 };
 ```
+```python
+class Solution:
+    def maxProfit(self, prices):
+        """
+        :type prices: List[int]
+        :rtype: int
+        """
+        maxProfit = 0
+        for i in range(1,len(prices)):
+            
+            maxProfit += max(0,prices[i]-prices[i-1])
+        
+        return maxProfit
+                        
+```
 * # 总结体会
-  这个解法比较简单，但算法复杂度为O（n^2）,耗时较久。
+  每当prices[i]-prices[i-1]>0的情况，都叠加给maxProfit。
