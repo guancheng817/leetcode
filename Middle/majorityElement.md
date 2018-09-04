@@ -29,10 +29,6 @@ public:
 ```python
 class Solution:
     def majorityElement(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """ 
         d = {}
         size = len(nums)
         for i in range(size):
