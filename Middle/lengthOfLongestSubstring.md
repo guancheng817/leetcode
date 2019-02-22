@@ -31,6 +31,30 @@ public:
       
     }
 };
+
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        if (s.size()<=1) return s.size();
+        vector<int> mark(200,-1);
+        int length=0,start=0,length_max=0;
+        
+        for(int i=0;i<s.size();i++)
+        {
+            if(mark[s[i]] != -1 && mark[s[i]]>=start)
+            {
+                length_max = length_max > i - start? length_max: i - start;
+                start = mark[s[i]] + 1;
+            }
+            
+            mark[s[i]] = i;
+        }
+        
+        length_max = length_max > s.length() - start? length_max: s.length() - start;
+        return length_max;
+    }
+};
+    
 ```
 ```python
 class Solution:
