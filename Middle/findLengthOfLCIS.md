@@ -3,7 +3,6 @@
 ### 代码
 ```c
 class Solution {
-class Solution {
 public:
     int findLengthOfLCIS(vector<int>& nums) {
         int max = 1,i,j;
