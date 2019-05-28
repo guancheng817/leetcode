@@ -34,5 +34,19 @@ class Solution:
           
         return q
 ```
+```python
+## 递归实现
+class Solution:
+    def reverseList(self, head: ListNode) -> ListNode:
+        if head == None or head.next == None:
+            return head;
+        
+        new_list = self.reverseList(head.next)
+        t1 = head.next
+        t1.next = head
+        head.next = None
+        
+        return new_list
+```
 * # 总结体会
 使用三个指针遍历单链表，逐个链接点进行反转。
