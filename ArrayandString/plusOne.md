@@ -18,7 +18,7 @@ class Solution:
             if num != 10 and i == 0:
                 digits[i] = num
                 return digits[::-1]
-            elif num != 10 and i != 0:
+            elif num != 10:
                 digits[i] = num 
                 return digits[::-1]
             elif num == 10:
