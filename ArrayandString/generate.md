@@ -8,23 +8,20 @@ class Solution:
     def generate(self, numRows: int) -> List[List[int]]:
         if not numRows:
             return []
-        l = []
-        sub_list = [1]
-        l.append(sub_list)
-        for i in range(numRows - 1):
-            tmp_list = []
-            for j, num in enumerate(sub_list, 0):
-                if j == 0:
-                    tmp_list.append(1)
-                else:
-                    tmp_list.append(sub_list[j] + sub_list[j - 1])
-                if j == len(sub_list) - 1:
-                    tmp_list.append(1)
-            l.append(tmp_list)
-            sub_list = tmp_list
-
         
-
+        l = [[1]]
+        
+        for i in range(1, numRows):
+            sub_list = []
+            for j in range(len(l[i-1])):
+                if j == 0:
+                    sub_list.append(1)
+                else:
+                    sub_list.append(l[i-1][j] + l[i-1][j-1])
+            
+            sub_list.append(1)
+            l.append(sub_list)
+            
         return l
 
 ```

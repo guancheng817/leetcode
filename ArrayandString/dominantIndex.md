@@ -11,15 +11,13 @@
 class Solution:
     def dominantIndex(self, nums: List[int]) -> int:
         max_num = max(nums)
-        
+        index = nums.index(max_num)
+        nums.remove(max_num)
         for i,num in enumerate(nums):
-            if num == max_num:
-                max_index = i
-            else:
-                if max_num < 2*num:
-                    return -1
+            if num > max_num/2:
+                return -1
 
-        return max_index
+        return index
 ```
 ## analysis
 

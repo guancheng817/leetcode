@@ -5,8 +5,6 @@
 ```python
 class Solution:
     def findDiagonalOrder(self, matrix: List[List[int]]) -> List[int]:
-        if matrix == [[]]:
-            return matrix
         l = []
         r, c, k = 0, 0 ,0
         dire = [[-1, 1],[1, -1]]

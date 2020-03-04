@@ -6,12 +6,12 @@
 
 你可以假设除了整数 0 之外，这个整数不会以零开头。
 ## code
+```python
 class Solution:
     def plusOne(self, digits: List[int]) -> List[int]:
         new_l  = []
         c = 1
         digits.reverse()
-        
         for i, num in enumerate(digits):
             num += c
             if num != 10 and i == 0:
@@ -22,11 +22,30 @@ class Solution:
                 return digits[::-1]
             elif num == 10:
                 digits[i] = 0
-                
         digits[0] = 1
         digits.append(0)
-                
         
         return digits
+        
+```
+
+```python
+        res = 0
+        digits.reverse()
+        for i,val in enumerate(digits):
+            res = res + val*(10**i)
+            
+        res +=1
+        
+        new = []
+        for j in range(len(str(res))-1, -1, -1):
+            
+            new.append(res%10)
+            res //= 10
+            
+            
+        
+        return new[::-1]
+```
 ## analysis
 之前返回a.reverse(),结果为空，查文档后发现a.reverse() 没有返回值.
