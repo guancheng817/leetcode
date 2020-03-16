@@ -51,6 +51,6 @@ class Solution:
 ## analysis
 利用BFS求解
 或者利用四平方定理:任何一个正整数都可以表示成不超过四个整数的平方之和。
-$$ n = 4^{a} \cdot (8b+7) $$
+$n = 4^{a} \cdot (8b+7) $
 
 

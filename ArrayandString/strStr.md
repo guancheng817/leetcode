@@ -27,7 +27,15 @@ class Solution:
         return -1
 
 ```
+```python
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
 
+        if needle in haystack:
+            return haystack.index(needle)
+        else: 
+            return -1
+```
 ## analysis
 
 有个很python的解法

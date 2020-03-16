@@ -7,18 +7,16 @@
 
 class Solution:
     def arrayPairSum(self, nums: List[int]) -> int:
-        if len(nums) == 0:
+        if not nums:
             return ""
-        elif len(nums) == 1:
-            return min(nums[0],nums[1])
+
         nums.sort()
-        num = 0
-        i = 0
-        while i<= len(nums)-2:
-            num += nums[i]
-            i+=2
+        re = 0
+        
+        for i in range(0, len(nums),2):
+            re+= nums[i]
             
-        return num
+        return re
 ```
 
 
